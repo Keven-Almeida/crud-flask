@@ -7,7 +7,7 @@ class ModeloModel(db.Model):
     nome = db.Column(db.String(80), nullable=False, unique=True,)
     descricao = db.Column(db.String(255), nullable=True,)
     
-    def __init__(self,nome, descricao):
+    def __init__(self, nome, descricao):
         self.nome = nome
         self.descricao = descricao
     
@@ -21,11 +21,11 @@ class ModeloModel(db.Model):
             },
     
     @classmethod
-    def find_by_nome(cls,nome):
+    def find_by_nome(cls, nome):
         return cls.query.filter_by(nome=nome).first()
     
     @classmethod
-    def find_by_id(cls,id):
+    def find_by_id(cls, id):
         return cls.query.filter_by(id=id).first()
     
     @classmethod

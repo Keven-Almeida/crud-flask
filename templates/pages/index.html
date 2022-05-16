@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- CONTENT -->
+    <h2 style="text-align:center; margin: 35px;">Modelos</h2>
+    <div class="card mt-4">
+        {%if modelos[1] == 404 %}
+            {%include 'partial/_messages.html'%}
+        {%else%}   
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for modelo in modelos%}
+                        <tr>
+                            <td>
+                                {{modelo.nome}}
+                            </td>
+                            <td>
+                                {{modelo.descricao}}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+{% endblock  %}

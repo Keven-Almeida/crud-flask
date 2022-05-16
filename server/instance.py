@@ -3,7 +3,7 @@ from flask_restplus import Api
 
 class Server():
     def __init__(self,):
-        self.app = Flask(__name__)
+        self.app = Flask(__name__, template_folder='../templates', static_folder='../static')
         self.blueprint = Blueprint('api', __name__, url_prefix='/api')
         self.api = Api(self.blueprint, doc='/doc', title='Desafio-Lead')
         self.app.register_blueprint(self.blueprint)

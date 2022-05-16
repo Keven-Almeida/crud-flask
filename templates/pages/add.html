@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 style="text-align:center; margin: 35px;">Adicionar Novo Modelo</h2>
+    <div class="container">
+        <form class="form-block my-2 my-lg-0 ml-lg-4"
+        action="{{ url_for('add') }}" method="post">
+          <div class="mb-3">
+              <label class="form-label">Nome</label>
+              <input name="nome"
+              value=""
+              class="form-control mr-sm-2"
+              type="text"  
+              placeholder="Nome"
+              aria-label="Nome">
+          </div>
+          <div class="mb-3">
+              <label class="form-label">Descricao</label>
+              <textarea class="form-control mr-sm-2" aria-label="descricao" name="descricao" rows="3"></textarea>
+          </div>
+
+          <div style="text-align:center">
+            <button type="submit" class="btn btn-primary mb-3 btn-lg">Salvar</button>
+          </div>
+        </form>
+    </div>
+{% endblock  %}

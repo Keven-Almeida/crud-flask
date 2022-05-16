@@ -64,7 +64,7 @@ class ModeloList(Resource):
 
     @modelo_ns.expect(item)
     @modelo_ns.doc('Create an model')
-    def post(self):
+    def post(self,):
         modelo_json = request.get_json()
         modelo_data = modelo_schema.load(modelo_json)
 
