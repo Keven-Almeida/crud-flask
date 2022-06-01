@@ -5,10 +5,10 @@ Esse exemplo básico foi feito com o intuito de iniciar os estudos com o framewo
 
 - Cadastro de um modelo com ```nome``` e ```descrição```
 - Lista todos os modelos existentes no banco de dados
-- Lista os modelos por nome
+- Lista os modelos por ```nome```
 - Lista os modelos por ```id```
-- Atualiza o modelo por nome
-- Deleta o modelo por nome
+- Atualiza o modelo por ```nome```
+- Deleta o modelo por ```nome```
 - Filtro de busca 
 
 <h2>Bibliotecas usadas:</h2>
@@ -28,7 +28,6 @@ Esse exemplo básico foi feito com o intuito de iniciar os estudos com o framewo
 - Rode o arquivo *env_gen.py*
 
 <h2>Inicializando o app</h2>
-- Use o comando:
 
     python -m app
     
@@ -36,6 +35,5 @@ Esse exemplo básico foi feito com o intuito de iniciar os estudos com o framewo
 ![Screenshot](static/images/home.png)
     
 
-### Tela cadastro de novo modelo
+### Tela de cadastro de novo modelo
 ![Screenshot](static/images/new_model.png)
-
