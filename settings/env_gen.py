@@ -13,5 +13,5 @@ PORT=5000
 
 
 # Writing our configuration file to '.env'
-with open('settings/.env', 'w') as configfile:
+with open('.env', 'w') as configfile:
     configfile.write(CONFIG_STRING)
