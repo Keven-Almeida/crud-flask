@@ -1,3 +1,4 @@
+import json
 from flask import request
 from flask_restplus import Resource, fields
 
@@ -34,7 +35,7 @@ class Modelo(Resource):
         if modelo_data:
             return modelo_schema.dump(modelo_data), 200
         return {'message': ITEM_NOT_FOUND}, 404
-    
+
     def delete(self, nome):
         modelo_data = ModeloModel.find_by_nome(nome)
         if modelo_data:
@@ -64,10 +65,8 @@ class ModeloList(Resource):
 
     @modelo_ns.expect(item)
     @modelo_ns.doc('Create an model')
-    def post(self,):
-        modelo_json = request.get_json()
-        modelo_data = modelo_schema.load(modelo_json)
-
-        modelo_data.save_to_db()
-
+    def post(self, model):
+        modelo_data = modelo_schema.load(model)
+        modelo_data.save_to_db(modelo_data)
+        
         return modelo_schema.dump(modelo_data), 201

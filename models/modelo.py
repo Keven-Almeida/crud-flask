@@ -13,12 +13,6 @@ class ModeloModel(db.Model):
     
     def __repr__(self):
         return f'ModeloModel(nome={self.nome}, descricao={self.descricao})'
-
-    def json(self):
-        return  {
-            'nome': self.nome,
-            'descricao': self.descricao
-            },
     
     @classmethod
     def find_by_nome(cls, nome):
@@ -32,11 +26,11 @@ class ModeloModel(db.Model):
     def find_all(cls):
         return cls.query.all()
     
-    def save_to_db(self):
-        db.session.add(self)
+    def save_to_db(self, model):
+        db.session.add(model)
         db.session.commit()
         
-    def delete_from_db(self):
-        db.session.delete(self)
+    def delete_from_db(self, model):
+        db.session.delete(model)
         db.session.commit()
         

@@ -1,2 +1,2 @@
-# crud-flask
-CRUD com framework flask, flask_replus e  marshmallow
+# Crud com Flask
+CRUD com framework flask, flask_replus , SQLAlchemy e  marshmallow
