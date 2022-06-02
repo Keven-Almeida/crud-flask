@@ -37,3 +37,6 @@ Esse exemplo básico foi feito com o intuito de iniciar os estudos com o framewo
 
 ### Tela de cadastro de novo modelo
 ![Screenshot](static/images/new_model.png)
+
+### Tela de cadastro de novo modelo
+![Screenshot](static/images/remove_model.png)
