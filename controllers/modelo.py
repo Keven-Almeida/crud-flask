@@ -1,4 +1,4 @@
-import json
+from db import db
 from flask import request
 from flask_restplus import Resource, fields
 
@@ -39,24 +39,21 @@ class Modelo(Resource):
     def delete(self, nome):
         modelo_data = ModeloModel.find_by_nome(nome)
         if modelo_data:
-            modelo_data.delete_from_db()
+            modelo_data.delete_from_db(modelo_data)
             return {'message': ITEM_DELETED}, 204
         return {'message': ITEM_NOT_FOUND}, 404
 
     @modelo_ns.expect(item)
-    def put(self, nome):
-        modelo_data = ModeloModel.find_by_nome(nome)
-        modelo_json = request.get_json()
-
-        if modelo_data:
-            modelo_data.nome = modelo_json['nome']
-            modelo_data.descricao = modelo_json['descricao']
-        else:
-            modelo_data = modelo_schema.load(modelo_json)
-
-        modelo_data.save_to_db()
-        return modelo_schema.dump(modelo_data), 200
-
+    def put(self, model):
+        try:
+            modelo = ModeloModel.find_by_nome(model['nome'])
+            model_data = dict(id=modelo.id, nome=model['nome'], descricao=model['descricao'])
+            modelo_data = modelo_schema.load(model_data, session=db.session)    
+    
+            modelo_data.save_to_db(modelo_data)
+            return modelo_schema.dump(modelo_data), 200
+        except:
+            return f'Update error'
 
 class ModeloList(Resource):
     @modelo_ns.doc('Get all the models')
